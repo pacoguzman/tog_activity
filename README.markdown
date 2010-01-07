@@ -1,8 +1,8 @@
 Tog Activity
 ========
 
-*Inspired and based in [adva_activity](http://github.com/svenfuchs/adva_cms/tree/master/engines/adva_activity/)
-*Inspired too in [has_streams](http://github.com/fnando/has_streams/)
+* Inspired and based in [adva_activity](http://github.com/svenfuchs/adva_cms/tree/master/engines/adva_activity/)
+* Inspired too in [has_streams](http://github.com/fnando/has_streams/)
 
 WORK IN PROGRESS
 
