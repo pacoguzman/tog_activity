@@ -22,6 +22,42 @@ Gem requirements for test environment
 
 * http://github.com/patmaddox/no-peeping-toms/
 
+Install
+-------
+
+* Install plugin form source:
+
+<pre>
+ruby script/plugin install git://github.com:pacoguzman/tog_activity.git
+</pre>
+
+* Generate installation migration:
+
+<pre>
+ruby script/generate migration install_tog_activity
+</pre>
+
+	  with the following content:
+
+<pre>
+class InstallTogActivity < ActiveRecord::Migration
+  def self.up
+    migrate_plugin "tog_activity", 1
+  end
+
+  def self.down
+    migrate_plugin "tog_activity", 0
+  end
+end
+</pre>
+
+* Add this require just below require 'desert' in the environment.rb file, with this desert handle correctly the observers used in tog_activity
+
+<pre>
+require "#{Rails.root}/vendor/plugins/tog_activity/lib/desert_ext/with_observers"
+</pre>
+
+
 More
 -------
 
