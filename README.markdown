@@ -14,6 +14,13 @@ Scope
 * Define the messages of each activity in one place - I18n support
 * Maybe define filters through an yml file to show specific activities
 
+Resources
+=========
+
+Gem requirements for test environment
+--------------------------------------
+
+* http://github.com/patmaddox/no-peeping-toms/
 
 More
 -------
