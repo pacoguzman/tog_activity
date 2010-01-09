@@ -1,6 +1,6 @@
 class CreateActivitiesTable < ActiveRecord::Migration
   def self.up
-    create_table :log_activities, :force => true do |t|
+    create_table :activities, :force => true do |t|
       t.references :author
 
       t.string     :actions

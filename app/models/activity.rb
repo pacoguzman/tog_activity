@@ -1,5 +1,4 @@
 class Activity < ActiveRecord::Base
-  set_table_name 'log_activities'
 
   belongs_to :object, :polymorphic => true
 
