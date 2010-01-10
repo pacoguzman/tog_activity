@@ -9,6 +9,9 @@ class CreateActivitiesTable < ActiveRecord::Migration
       t.text       :object_attributes
       t.datetime   :created_at, :null => false
     end
+
+    add_index :activities, :author_id
+    add_index :activities, [:object_id, :object_type]
   end
 
   def self.down
