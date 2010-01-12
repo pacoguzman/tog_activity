@@ -1,0 +1,8 @@
+<div class="image">
+  <%= link_to icon_for_profile(activity.author.profile, 'tiny'), profile_path(activity.author.profile) %>
+</div>
+<div class="text">
+  <% name = link_to activity.author.profile.full_name, profile_path(activity.author.profile) %>
+  <% owner = link_to activity.object.profile.full_name, profile_path(activity.object.profile) %>
+  <%= I18n.t( activity_i18n_key(activity), :user => name, :owner => owner ) %>
+</div>

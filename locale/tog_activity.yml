@@ -1,0 +1,6 @@
+en:
+  activities:
+    user:
+      activated: "{{user}} is already activated"
+    graffity:
+      created: "{{user}} wrote a comment in the wall of {{owner}}"       

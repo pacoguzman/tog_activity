@@ -1,0 +1,6 @@
+es:
+  activities:
+    user:
+      activated: "{{user}} ha activado su cuenta"
+    graffity:
+      created: "{{user}} wrote a comment in the wall of {{owner}}"      

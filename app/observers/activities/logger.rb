@@ -1,12 +1,15 @@
 module Activities
   class Logger < ActiveRecord::Observer
-    class_inheritable_accessor :activity_attributes, :activity_conditions
+    class_inheritable_accessor :activity_attributes, :activity_conditions, :activity_base_conditions
     self.activity_attributes = []
-    self.activity_conditions = [[:created, :new_record?], [:deleted, :frozen?]]
+    self.activity_conditions = [] 
+    self.activity_base_conditions = [[:created, :new_record?], [:deleted, :frozen?]]
 
     class << self
       def logs_activity(options = {})
         self.activity_attributes += options[:attributes] if options[:attributes]
+        options[:on] = [options[:on]].flatten
+        self.activity_conditions = self.activity_base_conditions.collect{|bc| bc if options[:on].include?(bc[0])}.compact
         yield Configurator.new(self) if block_given?
       end
     end

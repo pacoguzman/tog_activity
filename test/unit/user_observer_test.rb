@@ -14,6 +14,21 @@ class UserTest < ActiveSupport::TestCase
     should_change("the number of activities", :by => 1){ Activity.count }
   end
 
+  context "Destroying a user" do
+    setup do
+      ActiveRecord::Observer.with_observers('activities/user_observer') do
+        @user = Factory(:member)
+      end
+    end
+    should "destroy all its activities" do
+      assert !@user.activities.empty?
+      ActiveRecord::Observer.with_observers('activities/user_observer') do
+        @user.destroy
+      end
+      assert @user.activities.empty?
+    end
+  end
+
 #  def setup
 #    super
 #    #@site = Site.first
