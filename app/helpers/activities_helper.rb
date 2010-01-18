@@ -3,7 +3,7 @@ module ActivitiesHelper
   def public_continuum(size = 40)
     Activity.find(:all, :limit=> size, :order => " created_at DESC").collect do |a|
       content_tag :li, :class => "clearfix" + cycle(nil, " pair") do
-        render :partial => activity_partial(a), :locals => {:activity => a}
+        render activity_partial(a), {:a => a}
       end
     end 
   end

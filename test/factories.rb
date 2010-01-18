@@ -16,6 +16,7 @@ end
 
 Factory.define :group do |g|
   g.name 'group name'
+  g.association :author, :factory => :user
   g.state 'pending'
 end
 
@@ -30,4 +31,10 @@ Factory.define :graffity do |g|
   g.comment "Commentario del graffity"
   g.approved true
   g.spam false
+end
+
+Factory.define :activity do |f|
+  f.association :author
+  f.actions      'kill'
+  f.association :object, :factory => :user
 end
