@@ -4,7 +4,7 @@ class MembershipTest < ActiveSupport::TestCase
 
   ActiveRecord::Observer.disable_observers
 
-  if Desert::Manager.plugin_exists?("tog_wall")
+  if Desert::Manager.plugin_exists?("tog_social")
     context "Activating a membership" do
       setup do
         @user = Factory(:member)

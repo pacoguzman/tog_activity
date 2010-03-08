@@ -41,17 +41,31 @@ module Activities
     protected
 
     def prepare_activity_logging(record)
-      record.instance_variable_set :@activity, initialize_activity(record)
+      if respond_to?(:initialize_activities)
+        record.instance_variable_set :@activities, initialize_activities(record)
+      else
+        record.instance_variable_set :@activity, initialize_activity(record)
+      end
     end
 
     def log_activity(record)
-      activity = record.instance_variable_get :@activity
+      activities = record.instance_variable_get :@activities
+      if activities && !activities.empty?
+        activities.each { |activity| save_activity(activity, record) }
+      else
+        activity = record.instance_variable_get :@activity
+        save_activity(activity, record)
+      end
+      record.instance_variable_set :@activity, nil
+      record.instance_variable_set :@activities, nil
+    end
+
+    def save_activity(activity, record)
       if activity && !activity.actions.empty?
         activity.object = record
         activity.author = record.author if !activity.author && record.respond_to?(:author)
         activity.save!
       end
-      record.instance_variable_set :@activity, nil
     end
 
     def initialize_activity(record)

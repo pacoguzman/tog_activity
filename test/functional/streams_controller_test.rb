@@ -1,5 +1,4 @@
-require File.dirname(__FILE__) + '/../test_helper'
-#require 'search_controller'
+require File.expand_path(File.dirname(__FILE__) + "/../test_helper")
 
 class StreamsControllerTest < ActionController::TestCase
 

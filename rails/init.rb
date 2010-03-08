@@ -16,3 +16,4 @@ ActiveRecord::Base.observers += %w( activities/activity_observer activities/user
 ActiveRecord::Base.observers << 'activities/graffity_observer' if plugin_present?('tog_wall')
 ActiveRecord::Base.observers << 'activities/group_observer' if plugin_present?('tog_social')
 ActiveRecord::Base.observers << 'activities/membership_observer' if plugin_present?('tog_social')
+ActiveRecord::Base.observers << 'activities/friendship_observer' if plugin_present?('tog_social')

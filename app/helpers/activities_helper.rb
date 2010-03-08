@@ -19,7 +19,7 @@ private
     scopes = ["activities"]
     scopes << activity.object_type.underscore.gsub("/","_")
     scopes << activity.actions.first
-    if activity.object.is_a?(Comment) && !activity.object.commentable_type.nil?
+    if activity.object.class.to_s == 'Comment' && !activity.object.commentable_type.nil?
       scopes << activity.object.commentable_type.demodulize.downcase
     end
     key = scopes.join(".")
