@@ -9,7 +9,7 @@ module ActivitiesHelper
   end
 
   def activity_partial(activity)
-    #TODO only one action for activity
+    #TODO only one action per activity
     "activities/#{activity.object_type.underscore}/#{activity.actions.first.to_s}"
   end
   
