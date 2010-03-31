@@ -96,6 +96,8 @@ module Activities
           else raise 'not implemented' # TODO: should this be NotImplementedError?
           end
         end.inject(false){|a, b| a || b }
+      when Proc then
+        !!condition.call(record)
       end
     end
 
