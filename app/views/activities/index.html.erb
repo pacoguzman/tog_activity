@@ -1,0 +1,15 @@
+<div class="detail detail1">
+  <h1><%= @profile.nil? ? t('.global_activity') : t('.profile_activity', :user => @profile.full_name) %></h1>
+  <hr class="space"/>
+
+  <%= show_continuum @activities %>
+
+  <% if @activities.total_pages > 1 %>
+    <div class="span-15 last">
+      <div class="pagination-wrap">
+        <div class="pagination"><%= will_paginate @activities, :container => false %></div>
+      </div>
+    </div>
+  <% end -%>
+
+</div>

@@ -1,7 +1,4 @@
-<div class="image">
-  <%= link_to icon_for_profile(a.author.profile, 'tiny'), profile_path(a.author.profile) %>
-</div>
-<div class="text">
-  <% name = link_to a.author.profile.full_name, profile_path(a.author.profile) %>
-  <%= I18n.t( activity_i18n_key(a), :user => name ) %>
-</div>
+<% name = link_to_content(a.author.profile.full_name, a.author.profile) %>
+<% text = I18n.t(activity_i18n_key(a), :user => name) %>
+<div class="image"><%#= icon_ss_user %></div>
+<div class="text"><%= text %></div>

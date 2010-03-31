@@ -14,6 +14,11 @@ Scope
 * Define the messages of each activity in one place - I18n support
 * Maybe define filters through an yml file to show specific activities
 
+Notes
+-----
+
+* In activities views you must define the helper used to show an icon.
+
 Resources
 =========
 
@@ -54,7 +59,7 @@ end
 * Add this require just below require 'desert' in the environment.rb file, with this desert handle correctly the observers used in tog_activity
 
 <pre>
-require "#{Rails.root}/vendor/plugins/tog_activity/lib/desert_ext/with_observers"
+require File.join("#{Rails.root}", "vendor", "plugins", "tog_activity", "lib", "desert_ext", "with_observers")
 </pre>
 
 

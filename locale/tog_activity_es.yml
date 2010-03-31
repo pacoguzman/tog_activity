@@ -1,6 +1,24 @@
 es:
   activities:
+    index:
+      global_activity: Actividad global
+      profile_activity: "Actividad de {{user}}"
+    blog:
+      created: "{{user}} ha creado el blog {{title}}"
+    comment:
+      name: comentario
+      created:
+        post: "{{user}} ha creado un nuevo {{comment}} en el post {{commentable}}"
+    friendship:
+      friends: "{{friend}} y {{current}} ahora son amigos"
+    graffity:
+      created: "{{user}} escribió un comentario en el muro de {{owner}}"
+      own: "{{user}} escribió un comentario en su muro"
+    post:
+      publish: "{{user}} ha creado el post {{title}}"
+    tog_forum_post:
+      created: "{{user}} ha respondido al tema {{topic}} en el foro {{forum}}"
+    tog_forum_topic:
+      created: "{{user}} ha creado el tema {{topic}} en el foro {{forum}}"
     user:
       activated: "{{user}} ha activado su cuenta"
-    graffity:
-      created: "{{user}} wrote a comment in the wall of {{owner}}"      

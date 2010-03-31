@@ -1,0 +1,10 @@
+<%
+blog = a.object
+user = a.author
+title = link_to_content(blog.title, blog, :title => blog.title)
+user_link = link_to_content(user.profile.full_name, user.profile)
+text = I18n.t(activity_i18n_key(a), :user => user_link, :title => title)
+%>
+
+<div class="image"><%#= icon_ss_script_add %></div>
+<div class="text"><%= text %></div>

@@ -1,0 +1,10 @@
+<%
+topic = a.object
+forum = topic.forum
+user_link = link_to_content(a.author.profile.full_name, a.author.profile)
+topic_link = link_to_content(topic.title, topic, :title => topic.title)
+forum_link = link_to_content(forum.title, forum, :title => forum.title)
+text = I18n.t(activity_i18n_key(a), :user => user_link, :topic => topic_link, :forum => forum_link)
+%>
+<div class="image"><%#= icon_ss_note_add %></div>
+<div class="text"><%= text %></div>

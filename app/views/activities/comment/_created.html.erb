@@ -1,0 +1,11 @@
+<%
+comment = a.object
+comment_link = link_to_content(I18n.t('activities.comment.name'), comment)
+commentable_link = link_to_content(comment.commentable.title, comment.commentable)
+profile = a.author.profile
+profile_link = link_to_content(profile.full_name, profile)
+text = I18n.t(activity_i18n_key(a), :user => profile_link, :comment => comment_link, :commentable => commentable_link)
+%>
+
+<div class="image"><%#= icon_ss_comment %></div>
+<div class="text"><%= text %></div>

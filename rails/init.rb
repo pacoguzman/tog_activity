@@ -14,6 +14,17 @@ Tog::Plugins.helpers ActivitiesHelper
 
 ActiveRecord::Base.observers += %w( activities/activity_observer activities/user_observer )
 ActiveRecord::Base.observers << 'activities/graffity_observer' if plugin_present?('tog_wall')
-ActiveRecord::Base.observers << 'activities/group_observer' if plugin_present?('tog_social')
-ActiveRecord::Base.observers << 'activities/membership_observer' if plugin_present?('tog_social')
-ActiveRecord::Base.observers << 'activities/friendship_observer' if plugin_present?('tog_social')
+if plugin_present?('tog_social')
+  ActiveRecord::Base.observers << 'activities/group_observer'
+  ActiveRecord::Base.observers << 'activities/membership_observer'
+  ActiveRecord::Base.observers << 'activities/friendship_observer'
+end
+if plugin_present?('tog_conversatio')
+  ActiveRecord::Base.observers << 'activities/blog_observer'
+  ActiveRecord::Base.observers << 'activities/post_observer'
+  ActiveRecord::Base.observers << 'activities/comment_observer'
+end
+if plugin_present?('tog_forum')
+  ActiveRecord::Base.observers << 'activities/forum_topic_observer'
+  ActiveRecord::Base.observers << 'activities/forum_post_observer'
+end

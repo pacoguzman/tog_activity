@@ -1,0 +1,9 @@
+<%
+    inviter = a.object.invited
+    invited = a.object.inviter
+    friend = link_to_content(inviter.full_name, inviter)
+    current_friend = link_to_content(invited.full_name, invited)
+    text = I18n.t(activity_i18n_key(a), :friend => friend, :current => current_friend)
+-%>
+<div class="image"><%#= icon_ss_group %></div>
+<div class="text"><%= text %></div>

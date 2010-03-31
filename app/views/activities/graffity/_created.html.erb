@@ -1,8 +1,9 @@
-<div class="image">
-  <%= link_to icon_for_profile(a.author.profile, 'tiny'), profile_path(a.author.profile) %>
-</div>
-<div class="text">
-  <% name = link_to a.author.profile.full_name, profile_path(a.author.profile) %>
-  <% owner = link_to a.object.profile.full_name, profile_path(a.object.profile) %>
-  <%= I18n.t( activity_i18n_key(a), :user => name, :owner => owner ) %>
-</div>
+<% name = link_to_content(a.author.profile.full_name, a.author.profile) %>
+<% owner = link_to_content(a.object.profile.full_name, a.object.profile) %>
+<% if name == owner -%>
+    <% text = I18n.t('activities.graffity.own', :user => name) %>
+<% else -%>
+    <% text = I18n.t(activity_i18n_key(a), :user => name, :owner => owner) %>
+<% end -%>
+<div class="image"><%#= icon_ss_brick_add %></div>
+<div class="text"><%= text %></div>
