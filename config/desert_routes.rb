@@ -6,4 +6,3 @@ resources :profiles do |profile|
   profile.resources :activities, :only => [:index] 
 end
 
-resources :streams, :only => [:index, :show], :member => {:network => :get}
