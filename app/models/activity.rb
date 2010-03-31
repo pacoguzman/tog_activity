@@ -38,6 +38,8 @@ class Activity < ActiveRecord::Base
     { :conditions => ['created_at <= ?', time_ago]}
   }
 
+  named_scope :recent, :order => "activities.created_at DESC"
+  
   class << self
     def find_coinciding_grouped_by_dates(*dates)
       options = dates.extract_options!
